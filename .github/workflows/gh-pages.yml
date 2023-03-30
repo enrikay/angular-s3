@@ -1,9 +1,14 @@
-name: GitHub Pages
+name: S3 Deploy
 
+# Controls when the action will run. 
 on:
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+# Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches:
-    - main
+    branches: [ ma ]
+  pull_request:
+    branches: [ ma ]
 
 jobs:
   deploy:
@@ -35,4 +40,4 @@ jobs:
 
     - name: Deploy
       if: success()
-      run: aws s3 sync ./dist/angular-github-actions-amazon-s3 s3://angular-github-actions-amazon-s3
+      run: aws s3 sync ./dist/angular-s3 s3://moneypal.com
